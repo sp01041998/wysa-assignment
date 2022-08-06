@@ -106,8 +106,78 @@ const question_two = async (req, res) => {
     }
 }
 
+const question_three = async (req, res) => {
+    try {
+
+        let userAns = req.body.question_three.trim()
+        
+
+        let userId = req.decodeToken
+        console.log(userAns, userId)
+
+
+        const userData = await questionModel.findOneAndUpdate(
+            { _id: userId },
+            { $set: { "questions.question3": userAns } },
+            { new: true }
+        )
+
+        if (!userData) {
+            return res.status(400).send({ status: false, msg: "First Provide your nickName" })
+        }
+        
+        return res.status(200).send({ status: true, msg: "your answer submitted successfully. Now, pls go forward to next question", Data: userData })
+
+
+
+
+
+    } catch (err) {
+        return res.status(500).send({ status: false, msg: err.message })
+    }
+}
+
+const question_four = async (req, res) => {
+    try {
+
+        let userAns = req.body.question_four.trim()
+        
+
+        let userId = req.decodeToken
+        console.log(userAns, userId)
+
+
+        const userData = await questionModel.findOneAndUpdate(
+            { _id: userId },
+            { $set: { "questions.question4": userAns } },
+            { new: true }
+        )
+
+        if (!userData) {
+            return res.status(400).send({ status: false, msg: "First Provide your nickName" })
+        }
+        
+        return res.status(200).send({ status: true, msg: "your answer submitted successfully. Now, pls go forward to next question", Data: userData })
+
+
+
+
+
+    } catch (err) {
+        return res.status(500).send({ status: false, msg: err.message })
+    }
+}
+
+
+
+
+
+
+
 module.exports = {
     userInfo,
     question_one,
-    question_two
+    question_two,
+    question_three,
+    question_four
 }

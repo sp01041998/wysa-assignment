@@ -13,5 +13,7 @@ router.post("/new/userInfo", questionController.userInfo)
 
 router.post("/question1", middleware.authenticate, questionController.question_one)
 router.post("/question2", middleware.authenticate, questionController.question_two)
+router.post("/question3", middleware.authenticate, questionController.question_three)
+router.post("/question4", middleware.authenticate, questionController.question_four)
 
 module.exports=router

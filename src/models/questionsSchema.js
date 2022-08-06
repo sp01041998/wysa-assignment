@@ -14,15 +14,14 @@ const question_Schema = new mongoose.Schema({
 
         question2 : {
             type : String,
-            default : null
+            enum : ["less than 2 weeks", "2 to 8 weeks", "More than 8 weeks"]
         },
         question3:{
             type : String,
-            default : null
+           
         },
         question4 : {
             type : String,
-            default : null
         }
     }
 }, {timestamps:true})
