@@ -25,7 +25,7 @@
 
 ## User APIs 
 ### POST /new/userInfo
--Take nickNme as a input from the user and create a document in dataBase.Data at this point should look like [this]
+-Take nickNme as a input from the user and create a document in dataBase.Data at this point should look like [this](#successful-response-structure)
 - user document Object id(User id) to create JWT token
 - Return HTTP status 200 on a succesful nicjName submission.The response should be a JSON object like [this](#successful-response-structure)
 
