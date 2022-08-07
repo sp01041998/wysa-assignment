@@ -15,5 +15,6 @@ router.post("/question1", middleware.authenticate, questionController.question_o
 router.post("/question2", middleware.authenticate, questionController.question_two)
 router.post("/question3", middleware.authenticate, questionController.question_three)
 router.post("/question4", middleware.authenticate, questionController.question_four)
+router.post("/question5", middleware.authenticate, questionController.question_five)
 
 module.exports=router

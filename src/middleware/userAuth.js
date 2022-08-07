@@ -16,10 +16,8 @@ let authenticate = async function (req, res, next) {
 
         }
        
-        
+        console.log(decodeToken)
         req.decodeToken = decodeToken.id
-
-        console.log(req.decodeToken)
         next()
 
     } catch (err) {

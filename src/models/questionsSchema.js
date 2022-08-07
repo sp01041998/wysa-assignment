@@ -8,8 +8,8 @@ const question_Schema = new mongoose.Schema({
 
     questions : {
         question1 : {
-            type : String,
-            default : null
+            type : [String]
+
         },
 
         question2 : {
@@ -22,6 +22,9 @@ const question_Schema = new mongoose.Schema({
         },
         question4 : {
             type : String,
+        },
+        question5 : {
+            type : String
         }
     }
 }, {timestamps:true})
