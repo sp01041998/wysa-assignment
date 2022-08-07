@@ -78,9 +78,23 @@
 ### document structure
 ```yaml
 {
-  _id : ObjectId('62ef5dcba0b378ed1ce2766d')
-  nickName : "Dhoni"
-  questions : {}
+  {
+  "_id": ObjectId("62ef5dcba0b378ed1ce2766d"),
+  "nickName": "Dhoni",
+  "questions": {
+    "question1": [
+      "I would go to sleep easily",
+      "I'd wake up on time, refreshed"
+    ],
+    "question2": "2 to 8 weeks",
+    "question3": "20:00:00",
+    "question4": "09:00:00",
+    "question5": "5 hr"
+  },
+  "createdAt": 2022-08-07T10:52:29.866+00:00,
+  "updatedAt": 2022-08-07T10:52:29.866+00:00,
+  "__v": 0
+}
 }
 ```
 ### Response structure
