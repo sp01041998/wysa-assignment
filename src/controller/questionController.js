@@ -70,7 +70,7 @@ const question_one = async (req, res) => {
             { new: true }
         )
 
-        // this API ill only work if users have provided his nickname in previous api
+        // this API will only work if users have provided his nickname in previous api
         if (!userData) {
             return res.status(400).send({ status: false, msg: "First Provide your nickName" })
         }
@@ -110,10 +110,6 @@ const question_two = async (req, res) => {
 
 
         return res.status(200).send({ status: true, msg: "your answer submitted successfully. Now, pls go forward to next question", Data: userData })
-
-
-
-
 
     } catch (err) {
         return res.status(500).send({ status: false, msg: err.message })
@@ -161,14 +157,12 @@ const question_three = async (req, res) => {
 
         return res.status(200).send({ status: true, msg: "your answer submitted successfully. Now, pls go forward to next question", Data: userData })
 
-
-
-
-
     } catch (err) {
         return res.status(500).send({ status: false, msg: err.message })
     }
 }
+
+
 
 const question_four = async (req, res) => {
     try {
@@ -218,6 +212,9 @@ const question_four = async (req, res) => {
     }
 }
 
+
+
+
 const question_five = async (req, res) => {
     try {
 
@@ -244,11 +241,13 @@ const question_five = async (req, res) => {
         const wakeUpTime = userData.questions.question4
         
         const timeStart = new Date("01/01/2007 " + went_to_sleep);
-        const timeEnd = new Date("01/01/2007 " + wakeUpTime);
-        const totalTimeSpentInBed = Math.abs((timeEnd - timeStart)/(60*60*1000))
+        const timeEnd = new Date("01/02/2007 " + wakeUpTime);
+        const totalTimeSpentInBed = Math.abs((timeEnd - timeStart)/(60*60*1000))  // calculated in hours
            
         
         const netSleepTime = userData.questions.question5.split(" ")[0]
+
+        console.log(totalTimeSpentInBed, netSleepTime)
 
         const sleepEfficiency  = Math.round((netSleepTime/Number(totalTimeSpentInBed)) * 100)
 
@@ -259,11 +258,6 @@ const question_five = async (req, res) => {
         return res.status(500).send({ status: false, msg: err.message })
     }
 }
-
-
-
-
-
 
 
 
