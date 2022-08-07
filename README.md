@@ -25,9 +25,9 @@
 
 ## User APIs 
 ### POST /new/userInfo
--Take nickNme as a input from the user and create a document in dataBase.Data at this point should look like [this](#successful-response-structure)
+-Take nickNme as a input from the user and create a document in dataBase.Data at this point should look like [this](#document structure)
 - user document Object id(User id) to create JWT token
-- Return HTTP status 200 on a succesful nicjName submission.The response should be a JSON object like [this](#successful-response-structure)
+- Return HTTP status 200 on a succesful nickName submission.The response should be a JSON object like [this](#successful-response-structure)
 
 ### POST /question1
 - User will hit this api to sub,it the answer of first question
@@ -122,7 +122,7 @@ Refer below sample
 
 ## Response
 
-### Successful Response structure
+### document structure
 ```yaml
 {
   status: true,
@@ -140,160 +140,3 @@ Refer below sample
 }
 ```
 
-## Collections
-## users
-```yaml
-{
-  _id: ObjectId("88abc190ef0288abc190ef02"),
-  title: "Mr",
-  name: "John Doe",
-  phone: 9897969594,
-  email: "johndoe@mailinator.com", 
-  password: "abcd1234567",
-  address: {
-    street: "110, Ridhi Sidhi Tower",
-    city: "Jaipur",
-    pincode: "400001"
-  },
-  "createdAt": "2021-09-17T04:25:07.803Z",
-  "updatedAt": "2021-09-17T04:25:07.803Z",
-}
-```
-### books
-```yaml
-{
-  "_id": ObjectId("88abc190ef0288abc190ef55"),
-  "title": "How to win friends and influence people",
-  "excerpt": "book body",
-  "userId": ObjectId("88abc190ef0288abc190ef02"),
-  "ISBN": "978-0008391331",
-  "category": "Book",
-  "subcategory": "Non fiction",
-  "deleted": false,
-  "reviews": 0,
-  "deletedAt": "", // if deleted is true deletedAt will have a date 2021-09-17T04:25:07.803Z,
-  "releasedAt": "2021-09-17T04:25:07.803Z"
-  "createdAt": "2021-09-17T04:25:07.803Z",
-  "updatedAt": "2021-09-17T04:25:07.803Z",
-}
-```
-
-### reviews
-```yaml
-{
-  "_id": ObjectId("88abc190ef0288abc190ef88"),
-  bookId: ObjectId("88abc190ef0288abc190ef55"),
-  reviewedBy: "Jane Doe",
-  reviewedAt: "2021-09-17T04:25:07.803Z",
-  rating: 4,
-  review: "An exciting nerving thriller. A gripping tale. A must read book."
-}
-```
-
-## Response examples
-### Get books response
-```yaml
-{
-  status: true,
-  message: 'Books list',
-  data: [
-    {
-      "_id": ObjectId("88abc190ef0288abc190ef55"),
-      "title": "How to win friends and influence people",
-      "excerpt": "book body",
-      "userId": ObjectId("88abc190ef0288abc190ef02")
-      "category": "Book",
-      "reviews": 0,
-      "releasedAt": "2021-09-17T04:25:07.803Z"
-    },
-    {
-      "_id": ObjectId("88abc190ef0288abc190ef56"),
-      "title": "How to win friends and influence people",
-      "excerpt": "book body",
-      "userId": ObjectId("88abc190ef0288abc190ef02")
-      "category": "Book",
-      "reviews": 0,
-      "releasedAt": "2021-09-17T04:25:07.803Z"
-    }
-  ]
-}
-```
-
-### Book details response
-```yaml
-{
-  status: true,
-  message: 'Books list',
-  data: {
-    "_id": ObjectId("88abc190ef0288abc190ef55"),
-    "title": "How to win friends and influence people",
-    "excerpt": "book body",
-    "userId": ObjectId("88abc190ef0288abc190ef02")
-    "category": "Book",
-    "subcategory": "Non fiction", "Self Help"],
-    "deleted": false,
-    "reviews": 0,
-    "deletedAt": "", // if deleted is true deletedAt will have a date 2021-09-17T04:25:07.803Z,
-    "releasedAt": "2021-09-17T04:25:07.803Z"
-    "createdAt": "2021-09-17T04:25:07.803Z",
-    "updatedAt": "2021-09-17T04:25:07.803Z",
-    "reviewsData": [
-      {
-        "_id": ObjectId("88abc190ef0288abc190ef88"),
-        bookId: ObjectId("88abc190ef0288abc190ef55"),
-        reviewedBy: "Jane Doe",
-        reviewedAt: "2021-09-17T04:25:07.803Z",
-        rating: 4,
-        review: "An exciting nerving thriller. A gripping tale. A must read book."
-      },
-      {
-        "_id": ObjectId("88abc190ef0288abc190ef89"),
-        bookId: ObjectId("88abc190ef0288abc190ef55"),
-        reviewedBy: "Jane Doe",
-        reviewedAt: "2021-09-17T04:25:07.803Z",
-        rating: 4,
-        review: "An exciting nerving thriller. A gripping tale. A must read book."
-      },
-      {
-        "_id": ObjectId("88abc190ef0288abc190ef90"),
-        bookId: ObjectId("88abc190ef0288abc190ef55"),
-        reviewedBy: "Jane Doe",
-        reviewedAt: "2021-09-17T04:25:07.803Z",
-        rating: 4,
-        review: "An exciting nerving thriller. A gripping tale. A must read book."
-      },
-      {
-        "_id": ObjectId("88abc190ef0288abc190ef91"),
-        bookId: ObjectId("88abc190ef0288abc190ef55"),
-        reviewedBy: "Jane Doe",
-        reviewedAt: "2021-09-17T04:25:07.803Z",
-        rating: 4,
-        review: "An exciting nerving thriller. A gripping tale. A must read book."
-      }, 
-    ]
-  }
-}
-```
-
-### Book details response no reviews
-```yaml
-{
-  status: true,
-  message: 'Books list',
-  data: {
-    "_id": ObjectId("88abc190ef0288abc190ef55"),
-    "title": "How to win friends and influence people",
-    "excerpt": "book body",
-    "userId": ObjectId("88abc190ef0288abc190ef02")
-    "category": "Book",
-    "subcategory": "Non fiction", "Self Help"],
-    "deleted": false,
-    "reviews": 0,
-    "deletedAt": "", // if deleted is true deletedAt will have a date 2021-09-17T04:25:07.803Z,
-    "releasedAt": "2021-09-17"
-    "createdAt": "2021-09-17T04:25:07.803Z",
-    "updatedAt": "2021-09-17T04:25:07.803Z",
-    "reviewsData": []
-  }
-}
-```
