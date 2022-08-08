@@ -4,7 +4,7 @@
 
 ### Key points
 - Create a  database `wysa-Assignment`. MongoDB Url = "mongodb+srv://sp01041998:71HOQkRVAWXnVxw0@cluster0.deqvc.mongodb.net/wysa-Assignment"(use this url to connect with my db)
--Have tested entire api on postman
+- Have tested entire api on postman
 
 ### Models
 - Question Model
@@ -25,25 +25,33 @@
 
 ## User APIs 
 ### POST /new/userInfo
--Take nickNme as a input from the user and create a document in dataBase.Data at this point should look like [this](#document structure)
+-Take nickName, userName and password as a input from the user and create a document in dataBase.Data at this point should look like [this](#document structure)
+- used bcrypt to hash the password
 - user document Object id(User id) to create JWT token
-- Return HTTP status 200 on a succesful nickName submission.The response should be a JSON object like [this](#Response structure)
+- Return HTTP status 200 on a succesful nickName submission.The response should be a JSON object like [this](#Response structure)\
 
-### POST /question1
+
+### POST /userLogin
+- take userName and Passowrd as input from the user
+- if any details provided by user is wrong, then res the user that "userName/password is wrong".\
+- use userId(Object id) to generate JWT token
+- Return HTTP status 200 on a succesful login.
+
+### POST /question1/:userId
 - User will hit this api to sub,it the answer of first question
 - Extract response of user from req body
 - Extract JWT Token from header and authenticate it.After successful decoding of token , extract userID from it.
 - make sure that user have alreday submitted his nickName name in previous API
 - use this userID to update Document with user response of 1st Question
 
-### POST /question2
+### POST /question2/:userId
 - User will hit this api to submit the answer of second question
 - Extract response of user from req body
 - Extract JWT Token from header and authenticate it.After successful decoding of token , extract userID from it.
 - make sure this api will only be hit when user have already responded on previous questions
 - use this userID to update Document with user response of 2nd Question
 
-###  POST /question3
+###  POST /question3/:userId
 - User will hit this api to submit the answer of third question
 - Extract response of user from req body
 - Extract JWT Token from header and authenticate it.After successful decoding of token , extract userID from it.
@@ -52,7 +60,7 @@
 - use this userID to update Document with user response of 3rd question
 
 
-###  POST /question4
+###  POST /question4/:userId
 - User will hit this api to submit the answer of 4th question
 - Extract response of user from req body
 - Extract JWT Token from header and authenticate it.After successful decoding of token , extract userID from it.
@@ -60,7 +68,7 @@
 - user will give time as a input in response to our Question, Convert that time in 24-Hour format before updating the document
 - use this userID to update Document with user response of 4th question
 
-###  POST /question5
+###  POST /question5/:userId
 - User will hit this api to submit the answer of 4th question
 - Extract response of user from req body
 - Extract JWT Token from header and authenticate it.After successful decoding of token , extract userID from it.
@@ -71,7 +79,11 @@
 
 
 ### Authentication
-- used JWT to make sure all routes are protected
+- used JWT to authenticate the user
+
+### Authorisation
+- used decoded token informtion to authorise our user
+- this will make sure that all api are endpoint protected
 
 ## Response
 
@@ -81,6 +93,8 @@
   {
   "_id": ObjectId("62ef5dcba0b378ed1ce2766d"),
   "nickName": "Dhoni",
+  "userName" : "sp0104002",
+  "password" : "$2b$10$2rW9nhDJpeFGVb.tZKygdObXIPsv0Ui4KQ0QDAs2rvEdG7bYjxe9i"
   "questions": {
     "question1": [
       "I would go to sleep easily",
@@ -108,3 +122,8 @@
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZWY5YTEyNjQxNGZhMTVlMmEzNGI5MCIsImlhdCI6MTY1OTg2OTcxNH0.ourZIdY-78SImhNMRNk3rDwrQjfCo8X-uTQ6HXHjBvQ"}
 }
 ```
+### Note(Assumption)
+- wakeuptime and sleeptime of user will be on consecutive day, eg: sleepTime : - "08:30m PM"(01/08/2022) so bedtime needs to on next day (bedTime : - anytime om (02/08/2022)
+- this is assumed to calculate sleep efficieny
+
+
