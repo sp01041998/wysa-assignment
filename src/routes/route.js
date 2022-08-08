@@ -4,14 +4,13 @@ const router = express.Router()
 const questionController = require("../controller/questionController")
 const middleware = require("../middleware/userAuth")
 
-router.get("/test-me", (req, res)=>{
-    return res.send("Hello there")
-})
 
-
+// user signup nd login api
 router.post("/new/userInfo", questionController.userInfo)
 router.post("/userLogin",  questionController.userLogin)
 
+
+// questions api
 router.post("/question1/:userId", middleware.authenticate, middleware.authorise,  questionController.question_one)
 router.post("/question2/:userId", middleware.authenticate,  middleware.authorise,     questionController.question_two)
 router.post("/question3/:userId", middleware.authenticate,  middleware.authorise,  questionController.question_three)
