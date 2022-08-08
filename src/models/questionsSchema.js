@@ -6,6 +6,14 @@ const question_Schema = new mongoose.Schema({
         type : String
     },
 
+    userName : {
+        type : String,
+        unique : true
+    }, 
+    password : {
+        type : String
+    },
+
     questions : {
         question1 : {
             type : [String]
@@ -23,7 +31,7 @@ const question_Schema = new mongoose.Schema({
         question4 : {
             type : String,
         },
-        
+
         question5 : {
             type : String
         }
