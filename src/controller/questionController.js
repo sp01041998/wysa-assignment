@@ -26,7 +26,7 @@ const userInfo = async (req, res) => {
         if(checkUserName){
             return res.status(400).send({status : false, msg : `${userName} already exist`})
         }
-        console.log(checkUserName)
+        
 
         // password minimum length should be 8
         let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
@@ -251,7 +251,7 @@ const question_four = async (req, res) => {
             timeIn_24Hour_format = hour + ":" + minute + ":00"
         }
 
-        console.log(timeIn_24Hour_format)
+
 
 
         // make sure that this api will only work after user have submitted the answer of previous questions
@@ -309,8 +309,6 @@ const question_five = async (req, res) => {
 
 
         const netSleepTime = userData.questions.question5.split(" ")[0]
-
-        console.log(totalTimeSpentInBed, netSleepTime)
 
         const sleepEfficiency = Math.round((netSleepTime / Number(totalTimeSpentInBed)) * 100)
 

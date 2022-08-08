@@ -33,8 +33,7 @@ const authorise = async(req, res, next)=>{
     try{
        
         const Id = req.params.userId
-        console.log(Id)
-
+        
         //first check this userid is valid or not
 
         const check = await questionModel.findById({_id : Id})
