@@ -4,7 +4,7 @@
 
 ### Key points
 - Create a  database `wysa-Assignment`. MongoDB Url = "mongodb+srv://sp01041998:71HOQkRVAWXnVxw0@cluster0.deqvc.mongodb.net/wysa-Assignment"(use this url to connect with my db)
-- Have tested entire api on postman
+- Have tested entire api on thunderClient
 
 ### Models
 - Question Model
